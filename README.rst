@@ -15,5 +15,5 @@ The easiest way to install the ``woice`` module is to use pip.
 
 ::
 
-    pip install -U https://github.com/keans/woice/archive/master.zip
+    pip3 install -U https://github.com/keans/woice/archive/master.zip
 
