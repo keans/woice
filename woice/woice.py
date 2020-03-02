@@ -3,6 +3,7 @@
 
 import sys
 import argparse
+import logging
 
 import requests
 import lxml.html
@@ -19,6 +20,10 @@ HEADERS = {
     "user-agent": "Mozilla/5.0 (iPad; U; CPU OS 3_2_1 like Mac OS X; en-us) "
                   "AppleWebKit/531.21.10 (KHTML, like Gecko) Mobile/7B405"
 }
+
+# configure logger
+# logging.basicConfig(level=logging.DEBUG)
+log = logging.getLogger(__file__)
 
 
 class WifiOnIceManager:
@@ -58,12 +63,14 @@ class WifiOnIceManager:
         if r.status_code != requests.codes.ok:
             sys.exit("state detection error: {}".format(r.status_code))
 
-        # get form value from returned html page and store them internally
-        form = lxml.html.fromstring(r.text).find(".//form")
+        # get inputs from form and store them internally
+        inputs = lxml.html.fromstring(r.text).findall(".//input")
         self._status = {
             inp.name: inp.value
-            for inp in form.findall("input")
+            for inp in inputs
+            if inp.name is not None
         }
+        log.debug(self._status)
 
     def _action(self, cmd):
         """
