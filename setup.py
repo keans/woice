@@ -16,7 +16,7 @@ def get_long_description():
 
 setup(
     name='woice',
-    version='0.0.2',
+    version='0.0.3',
     description='A small script to connect to the WiFiOnICE network.',
     long_description=get_long_description(),
     url='https://keans.de',
