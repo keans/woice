@@ -10,10 +10,10 @@ import lxml.html
 
 
 # login URL of the wifi on ice portal
-LOGIN_URL = "http://www.wifionice.de/de/"
+LOGIN_URL = "https://login.wifionice.de/de/"
 
 # url to get used data volume
-USAGE_URL = "http://www.wifionice.de/usage_info/"
+USAGE_URL = "https://login.wifionice.de/usage_info/"
 
 # set user agent
 HEADERS = {
