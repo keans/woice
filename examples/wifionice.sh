@@ -10,13 +10,13 @@ ESSID="WIFIonICE"
 INTERFACE="${interface}"
 
 # woice python script
-WOICE="/usr/local/bin/woice"
+WOICE="$(which woice)"
 
 
 if [ "${interface}" = "${INTERFACE}" ]; then
     # get current essid
     essid="$(iwgetid "${INTERFACE}" -r)"
-    
+
     # get wifionice status
     wifionicestatus="$("${WOICE}" status)"
 

@@ -2,5 +2,7 @@
 *.swp
 *.pyc
 *.bak
+*.lock
 env/
-
+build/
+woice.egg-info/
